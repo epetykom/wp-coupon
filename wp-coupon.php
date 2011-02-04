@@ -1243,15 +1243,26 @@ function wp_coupon_table_footer() {
 function wp_coupon_fonts()
 {
 	return array( 
-		array( "times", "Serif 1"),
-		array( "timesb", "Serif 1 (bold)"),
-		array( "almohanad", "Serif 2"),
-		array( "helvetica", "Sans-serif 1"),
-		array( "helveticab", "Sans-serif 1 (bold)"),
-		array( "dejavusans", "Sans-serif 2"),
-		array( "dejavusansb", "Sans-serif 2 (bold)"),
-		array( "courier", "Monotype" ),
-		array( "courierb", "Monotype (bold)")
+		array( "dejavusans", "Deja Vu Sans"),
+		array( "dejavusansb", "Deja Vu Sans (bold)"),
+		array( "dejavusansi", "Deja Vu Sans (italic)"),
+		array( "dejavusansbi", "Deja Vu Sans (bold, italic)"),
+		array( "dejavusanscondensed", "Deja Vu Sans Condensed"),
+		array( "dejavusanscondensedb", "Deja Vu Sans Condensed (bold)"),
+		array( "dejavusanscondensedi", "Deja Vu Sans Condensed (italic)"),
+		array( "dejavusanscondensedbi", "Deja Vu Sans Condensed (bold, italic)"),
+		array( "dejavusansmono", "Deja Vu Sans Monospace"),
+		array( "dejavusansmonob", "Deja Vu Sans Monospace (bold)"),
+		array( "dejavusansmonoi", "Deja Vu Sans Monospace (italic)"),
+		array( "dejavusansmonobi", "Deja Vu Sans Monospace (bold, italic)"),
+		array( "dejavuserif", "Deja Vu Serif"),
+		array( "dejavuserifb", "Deja Vu Serif (bold)"),
+		array( "dejavuserifi", "Deja Vu Serif (italic)"),
+		array( "dejavuserifbi", "Deja Vu Serif (bold, italic)"),
+		array( "dejavuserifcondensed", "Deja Vu Serif Condensed"),
+		array( "dejavuserifcondensedb", "Deja Vu Serif Condensed (bold)"),
+		array( "dejavuserifcondensedi", "Deja Vu Serif Condensed (italic)"),
+		array( "dejavuserifcondensedbi", "Deja Vu Serif Condensed (bold, italic)")
 	);
 }
 
@@ -2037,25 +2048,14 @@ function wp_coupon_render_coupon( $coupon, $code ) {
 		header("Cache-Control: no-store, no-cache, must-revalidate");
 		header("Cache-Control: post-check=0, pre-check=0", false);
 		header("Pragma: no-cache");
-		header( 'Content-type: application/octet-stream' );
-		header( 'Content-Disposition: attachment; filename="' . $slug . '.pdf"' );
-	
-		// include the TCPDF class and wp-coupon PDF class
-		require_once("wp_coupon_pdf.php");
-		
-		// create new PDF document
-		$pdf = new wp_coupon_pdf(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+		header( 'Content-type: image/jpeg' );
+		header( 'Content-Disposition: attachment; filename="' . $slug . '.jpg"' );
 		
 		// set the properties
-		$pdf->coupon_image = ABSPATH . 'wp-content/plugins/wp-coupon/templates/' . $coupon->template . '.jpg';
-		$pdf->coupon_image_w = 200;
-		$pdf->coupon_image_h = 90;
-		$pdf->coupon_image_dpi = 150;
-		
-		// set document information
-		$pdf->SetCreator(PDF_CREATOR);
-		$pdf->SetAuthor($current_user->user_nicename);
-		$pdf->SetTitle($coupon->name);
+		//$pdf->coupon_image = ABSPATH . 'wp-content/plugins/wp-coupon/templates/' . $coupon->template . '.jpg';
+		//$pdf->coupon_image_w = 200;
+		//$pdf->coupon_image_h = 90;
+		//$pdf->coupon_image_dpi = 150;
 		
 		// set header and footer fonts
 		$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
@@ -2118,7 +2118,7 @@ function wp_coupon_render_coupon( $coupon, $code ) {
 		$pdf->Write( 5,  stripslashes( $coupon->terms ) . $expiry, $link = '', $fill = 0, $align = 'C', $ln = true);
 
 		// close and output PDF document
-		$pdf->Output( $slug . '.pdf', 'D' );
+		$pdf->Output( $slug . '.pdf', 'D' ); 
 		
 		// try to set the memory limit back
 		//@ini_set( 'memory_limit', @memory );

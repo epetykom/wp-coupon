@@ -1,0 +1,148 @@
+#wp_coupon .wp_coupon_col1 {
+clear: left;
+float: left;
+width: 48%;
+}
+#wp_coupon .wp_coupon_col2 {
+clear: right;
+float: right;
+width: 48%;
+}
+#wp_coupon .wp_coupon_col31 {
+clear: left;
+float: left;
+width: 32%;
+}
+#wp_coupon .wp_coupon_col32 {
+float: left;
+width: 32%;
+margin-left: 1.5%;
+}
+#wp_coupon .wp_coupon_col33 {
+clear: right;
+float: right;
+width: 32%;
+}
+#wp_coupon .wp_coupon_clear {
+clear: both;
+margin-top: 1em;
+}
+#wp_coupon td {
+vertical-align: bottom;
+}
+#wp_coupon ul.inline li {
+display: inline;
+margin-right: 2em;
+}
+h2 span.r {
+float: right;
+font-size: 80%;
+}
+.wp_coupon_clear {
+clear: both;
+}
+#couponthumbs {
+height: 200px;
+overflow: auto;
+}
+#couponthumbs img:hover {
+cursor: pointer;
+cursor: hand;
+}
+#couponpreview {
+height: 400px;
+width: 800px;
+text-align: center;
+background: url(templates/1_preview.jpg) no-repeat top center;
+}
+#couponpreview h2 {
+padding: 40px 10px 5px 10px;
+margin: 0;
+text-align: center;
+}
+#couponpreview h2 textarea {
+font-size: 42px;
+line-height: 44px;
+}
+#couponpreview p {
+margin: 0;
+padding: 5px 10px;
+text-align: center;
+}
+#couponterms  input{
+font-size: smaller;
+}
+#couponpreview textarea {
+background: transparent;
+border: 1px solid transparent;
+width: 80%;
+text-align: center;
+margin: 0 10%;
+}
+#couponpreview textarea#text {
+font-size: 20px;
+line-height: 22px;
+}
+#couponpreview textarea {
+overflow: hidden;
+}
+#couponpreview input:active, #couponpreview input:hover, #couponpreview input:focus, #couponpreview textarea:active, #couponpreview textarea:hover, #couponpreview textarea:focus {
+border: 1px solid #C00;
+}
+#templatestable td {
+vertical-align: top;
+}
+#templatestable table input, #templatestable table textarea {
+width: 100%;
+}
+#templatestable table input.checkbox {
+width: auto;
+}
+#templatestable .deleted {
+background: #FFBFC2;
+}
+#templatestable .deleted input, #templatestable .deleted textarea {
+background: #FFDFE1;
+}
+#couponform input.num {
+width: 4em;
+}
+#couponform p span {
+font-size: 0.9em;
+color: #666;
+}
+#couponform label, #templateform label {
+float: left;
+width: 16em;
+}
+.times {
+font-family: 'Times New Roman', Times, serif;
+}
+.timesb {
+font-family: 'Times New Roman', Times, serif; 
+font-weight: bold;
+}
+.almohanad {
+font-family: Almohanad, Georgia, serif;
+}
+.helvetica {
+font-family: Helvetica, Trebuchet, 'Trebuchet MS', sans-serif;
+}
+.helveticab {
+font-family: Helvetica, Trebuchet, 'Trebuchet MS', sans-serif; 
+font-weight: bold;
+}
+.dejavusans {
+font-family: Arial, sans-serif;
+}
+.dejavusansb {
+font-family: Arial, sans-serif; 
+font-weight: bold;
+}
+.courier {
+font-family: 'Courier New', Courier, monotype;
+}
+.courierb {
+font-family: 'Courier New', Courier, monotype; 
+font-weight: bold;
+}

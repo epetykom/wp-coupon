@@ -2052,49 +2052,25 @@ function wp_coupon_render_coupon( $coupon, $code ) {
 		header( 'Content-Disposition: attachment; filename="' . $slug . '.jpg"' );
 		
 		// set the properties
-		//$pdf->coupon_image = ABSPATH . 'wp-content/plugins/wp-coupon/templates/' . $coupon->template . '.jpg';
-		//$pdf->coupon_image_w = 200;
-		//$pdf->coupon_image_h = 90;
-		//$pdf->coupon_image_dpi = 150;
-		
-		// set header and footer fonts
-		$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
-		
-		// set default monospaced font
-		$pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
-		
-		//set margins
-		$pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
-		$pdf->SetHeaderMargin(0);
-		$pdf->SetFooterMargin(0);
-		
-		// remove default footer
-		$pdf->setPrintFooter(false);
-		
-		//set auto page breaks
-		$pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
-		
-		//set image scale factor
-		$pdf->setImageScale(PDF_IMAGE_SCALE_RATIO); 
-		
-		//set some language-dependent strings
-		$pdf->setLanguageArray($l); 
-		
-		// set top margin
-		$pdf->SetTopMargin(15);
-		
-		// add a page
-		$pdf->AddPage('L', array(200,90));
-		
+		$coupon_template = ABSPATH . 'wp-content/plugins/wp-coupon/templates/' . $coupon->template . '.jpg';
+		$coupon_image_w = 1181;
+		$coupon_image_h = 532;
+		$coupon_image = imagecreatefromjpeg($coupon_template);
+		$coupon_text_color = imagecolorallocate($coupon_image, 0, 0, 0);
+
+    //imagettftext ( resource $image , float $size , float $angle , int $x , int $y , int $color , string $fontfile , string $text )
+
+    imagettftext($coupon_image, 32, 0, 9, $coupon->name, $coupon_text_color);
+    
+    
 		// set title font
-		$pdf->SetFont($coupon->font, '', 32);
+		// $pdf->SetFont($coupon->font, '', 32);
 		// print title
-		$pdf->writeHTML( stripslashes( $coupon->name ), $ln=true, $fill=false, $reseth=false, $cell=false, $align='C');
+
 		
 		// set text font
-		$pdf->SetFont($coupon->font, '', 18);
+		// $pdf->SetFont($coupon->font, '', 18);
 		// print text
-		$pdf->Write( 5,  stripslashes( $coupon->text ), $link = '', $fill = 0, $align = 'C', $ln = true);
 
 		$registered_name = "";
 		if ( $coupon->registered_name != "" ) {

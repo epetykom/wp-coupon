@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-04 14:56+0600\n"
+"POT-Creation-Date: 2011-02-09 17:35+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,509 +17,504 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: wp-coupon.php:101
+#: wp-coupon.php:104
 msgid "Sorry, that item is not available"
 msgstr ""
 
-#: wp-coupon.php:103
+#: wp-coupon.php:106
 msgid "Sorry, that item was not found"
 msgstr ""
 
-#: wp-coupon.php:116
+#: wp-coupon.php:119
 msgid "Sorry, that item has expired"
 msgstr ""
 
-#: wp-coupon.php:128
+#: wp-coupon.php:131
 msgid "Sorry, that item has run out"
 msgstr ""
 
-#: wp-coupon.php:140
+#: wp-coupon.php:143
 msgid "You have already downloaded this coupon"
 msgstr ""
 
-#: wp-coupon.php:155
+#: wp-coupon.php:158
 msgid ""
 "Sorry, your PHP version must be 5 or above. Please contact your server "
 "administrator for help."
 msgstr ""
 
-#: wp-coupon.php:253
+#: wp-coupon.php:256
 msgid "The system does not have write permissions on the folder ("
 msgstr ""
 
-#: wp-coupon.php:375 wp-coupon.php:383 wp-coupon.php:392 wp-coupon.php:458
+#: wp-coupon.php:378 wp-coupon.php:386 wp-coupon.php:395 wp-coupon.php:461
 msgid "coupons"
 msgstr ""
 
-#: wp-coupon.php:376 wp-coupon.php:459 wp-coupon.php:539
+#: wp-coupon.php:379 wp-coupon.php:462 wp-coupon.php:542
 msgid "Create a coupon"
 msgstr ""
 
-#: wp-coupon.php:376
+#: wp-coupon.php:379
 msgid "Create"
 msgstr ""
 
-#: wp-coupon.php:379 wp-coupon.php:1002
-msgid "coupon templates"
+#: wp-coupon.php:382 wp-coupon.php:1005
+msgid "Coupon templates"
 msgstr ""
 
-#: wp-coupon.php:379
+#: wp-coupon.php:382
 msgid "Templates"
 msgstr ""
 
-#: wp-coupon.php:395
+#: wp-coupon.php:398
 msgid "25 most recent coupons"
 msgstr ""
 
-#: wp-coupon.php:414 wp-coupon.php:440 wp-coupon.php:490 wp-coupon.php:516
+#: wp-coupon.php:417 wp-coupon.php:443 wp-coupon.php:493 wp-coupon.php:519
 msgid ""
 "No coupons found. <a href=\"admin.php?page=coupons-create\">Create your "
 "first coupon here.</a>"
 msgstr ""
 
-#: wp-coupon.php:421
+#: wp-coupon.php:424
 msgid "25 most popular coupons"
 msgstr ""
 
-#: wp-coupon.php:465
+#: wp-coupon.php:468
 msgid ""
 "Your wp-coupon database will be reset next time you create or edit a coupon. "
 "You will not lose any data, the tables will just be checked for all the "
 "correct fields."
 msgstr ""
 
-#: wp-coupon.php:471
+#: wp-coupon.php:474
 msgid "Your coupons"
 msgstr ""
 
-#: wp-coupon.php:497
+#: wp-coupon.php:500
 msgid "Popular coupons"
 msgstr ""
 
-#: wp-coupon.php:520
+#: wp-coupon.php:523
 msgid "Download all registered email addresses"
 msgstr ""
 
-#: wp-coupon.php:546
+#: wp-coupon.php:549
 msgid ""
 "Sorry, your coupon could not be created. Please click back and try again."
 msgstr ""
 
-#: wp-coupon.php:557
-msgid "coupon name (30 characters)"
+#: wp-coupon.php:560
+msgid "Coupon name (30 characters)"
 msgstr ""
 
-#: wp-coupon.php:559
+#: wp-coupon.php:562
 msgid "Type the coupon text here (200 characters)"
 msgstr ""
 
-#: wp-coupon.php:561 wp-coupon.php:1613
-msgid "coupon code inserted here"
+#: wp-coupon.php:564
+msgid "Coupon code inserted here"
 msgstr ""
 
-#: wp-coupon.php:563
+#: wp-coupon.php:566
 msgid "Type the coupon terms and conditions here (300 characters)"
 msgstr ""
 
-#: wp-coupon.php:567 wp-coupon.php:780
+#: wp-coupon.php:570 wp-coupon.php:783
 msgid ""
-"coupon description (optional): enter a longer description here which will go "
+"Coupon description (optional): enter a longer description here which will go "
 "in the email sent to a user registering for this coupon."
 msgstr ""
 
-#: wp-coupon.php:573 wp-coupon.php:574 wp-coupon.php:786 wp-coupon.php:787
+#: wp-coupon.php:576 wp-coupon.php:577 wp-coupon.php:789 wp-coupon.php:790
 msgid "Font"
 msgstr ""
 
-#: wp-coupon.php:584 wp-coupon.php:801
+#: wp-coupon.php:587 wp-coupon.php:804
 msgid "Set the font for this coupon"
 msgstr ""
 
-#: wp-coupon.php:590 wp-coupon.php:807
+#: wp-coupon.php:593 wp-coupon.php:810
 msgid "Template"
 msgstr ""
 
-#: wp-coupon.php:604 wp-coupon.php:821 wp-coupon.php:1170
+#: wp-coupon.php:607 wp-coupon.php:824 wp-coupon.php:1173
 msgid "Sorry, no templates found"
 msgstr ""
 
-#: wp-coupon.php:609 wp-coupon.php:826
+#: wp-coupon.php:612 wp-coupon.php:829
 msgid "Settings"
 msgstr ""
 
-#: wp-coupon.php:611 wp-coupon.php:828
+#: wp-coupon.php:614 wp-coupon.php:831
 msgid "Require email address"
 msgstr ""
 
-#: wp-coupon.php:612 wp-coupon.php:833
+#: wp-coupon.php:615 wp-coupon.php:836
 msgid ""
 "Tick this box to require a valid email address to be given before this "
 "coupon can be downloaded"
 msgstr ""
 
-#: wp-coupon.php:614 wp-coupon.php:839
+#: wp-coupon.php:617 wp-coupon.php:842
 msgid "Number of coupons available"
 msgstr ""
 
-#: wp-coupon.php:615
+#: wp-coupon.php:618
 msgid ""
 "Set the number of times this coupon can be downloaded (leave blank or 0 for "
 "unlimited)"
 msgstr ""
 
-#: wp-coupon.php:617 wp-coupon.php:842
+#: wp-coupon.php:620 wp-coupon.php:845
 msgid "Date coupon expires"
 msgstr ""
 
-#: wp-coupon.php:618 wp-coupon.php:843
+#: wp-coupon.php:621 wp-coupon.php:846
 msgid "Year:"
 msgstr ""
 
-#: wp-coupon.php:619 wp-coupon.php:848
+#: wp-coupon.php:622 wp-coupon.php:851
 msgid "Month:"
 msgstr ""
 
-#: wp-coupon.php:620 wp-coupon.php:853
+#: wp-coupon.php:623 wp-coupon.php:856
 msgid "Day:"
 msgstr ""
 
-#: wp-coupon.php:621 wp-coupon.php:858
+#: wp-coupon.php:624 wp-coupon.php:861
 msgid "Enter the date on which this coupon will expire (leave blank for never)"
 msgstr ""
 
-#: wp-coupon.php:623 wp-coupon.php:868
-msgid "coupon codes"
+#: wp-coupon.php:626 wp-coupon.php:871
+msgid "Coupon codes"
 msgstr ""
 
-#: wp-coupon.php:625 wp-coupon.php:870
+#: wp-coupon.php:628 wp-coupon.php:873
 msgid "Use random codes"
 msgstr ""
 
-#: wp-coupon.php:626
+#: wp-coupon.php:629
 msgid "Tick this box to use a random character code on each coupon"
 msgstr ""
 
-#: wp-coupon.php:628 wp-coupon.php:877
+#: wp-coupon.php:631 wp-coupon.php:880
 msgid "Random code length"
 msgstr ""
 
-#: wp-coupon.php:635 wp-coupon.php:904
+#: wp-coupon.php:638 wp-coupon.php:907
 msgid "How long would you like the random code to be?"
 msgstr ""
 
-#: wp-coupon.php:637 wp-coupon.php:906
+#: wp-coupon.php:640 wp-coupon.php:909
 msgid "Use sequential codes"
 msgstr ""
 
-#: wp-coupon.php:638 wp-coupon.php:911
+#: wp-coupon.php:641 wp-coupon.php:914
 msgid "Tick this box to use sequential codes (1, 2, 3 etc) on each coupon"
 msgstr ""
 
-#: wp-coupon.php:640 wp-coupon.php:913
+#: wp-coupon.php:643 wp-coupon.php:916
 msgid "Sequential code prefix"
 msgstr ""
 
-#: wp-coupon.php:641 wp-coupon.php:914
+#: wp-coupon.php:644 wp-coupon.php:917
 msgid "Text to show before the sequential code (eg <strong>ABC</strong>123XYZ)"
 msgstr ""
 
-#: wp-coupon.php:643 wp-coupon.php:916
+#: wp-coupon.php:646 wp-coupon.php:919
 msgid "Sequential code suffix"
 msgstr ""
 
-#: wp-coupon.php:644 wp-coupon.php:917
+#: wp-coupon.php:647 wp-coupon.php:920
 msgid "Text to show after the sequential code (eg ABC123<strong>XYZ</strong>)"
 msgstr ""
 
-#: wp-coupon.php:646 wp-coupon.php:919
+#: wp-coupon.php:649 wp-coupon.php:922
 msgid "Use custom codes"
 msgstr ""
 
-#: wp-coupon.php:647
+#: wp-coupon.php:650
 msgid ""
 "Tick this box to use your own codes on each download of this coupon. You "
 "must enter all the codes you want to use below:"
 msgstr ""
 
-#: wp-coupon.php:649 wp-coupon.php:926
+#: wp-coupon.php:652 wp-coupon.php:929
 msgid "Custom codes (one per line)"
 msgstr ""
 
-#: wp-coupon.php:652 wp-coupon.php:933
+#: wp-coupon.php:655 wp-coupon.php:936
 msgid "Use a single code"
 msgstr ""
 
-#: wp-coupon.php:653 wp-coupon.php:938
+#: wp-coupon.php:656 wp-coupon.php:941
 msgid ""
 "Tick this box to use one code on all downloads of this coupon. Enter the "
 "code you want to use below:"
 msgstr ""
 
-#: wp-coupon.php:655 wp-coupon.php:940
+#: wp-coupon.php:658 wp-coupon.php:943
 msgid "Single code"
 msgstr ""
 
-#: wp-coupon.php:658 wp-coupon.php:952
+#: wp-coupon.php:661 wp-coupon.php:955
 msgid "Preview"
 msgstr ""
 
-#: wp-coupon.php:659 wp-coupon.php:953
+#: wp-coupon.php:662 wp-coupon.php:956
 msgid "Save"
 msgstr ""
 
-#: wp-coupon.php:684
+#: wp-coupon.php:687
 msgid "Edit coupon:"
 msgstr ""
 
-#: wp-coupon.php:689
+#: wp-coupon.php:692
 msgid "Downloads:"
 msgstr ""
 
-#: wp-coupon.php:690
+#: wp-coupon.php:693
 msgid "CSV"
 msgstr ""
 
-#: wp-coupon.php:698 wp-coupon.php:711
+#: wp-coupon.php:701 wp-coupon.php:714
 msgid "Shortcode for this coupon:"
 msgstr ""
 
-#: wp-coupon.php:705
+#: wp-coupon.php:708
 msgid "Shortcode for this coupon registration form:"
 msgstr ""
 
-#: wp-coupon.php:713
+#: wp-coupon.php:716
 msgid "Link for this coupon:"
 msgstr ""
 
-#: wp-coupon.php:722
+#: wp-coupon.php:725
 msgid "Your coupon has been created."
 msgstr ""
 
-#: wp-coupon.php:729
+#: wp-coupon.php:732
 msgid "Sorry, your coupon could not be edited."
 msgstr ""
 
-#: wp-coupon.php:736
+#: wp-coupon.php:739
 msgid "Your coupon has been edited."
 msgstr ""
 
-#: wp-coupon.php:743 wp-coupon.php:971
+#: wp-coupon.php:746 wp-coupon.php:974
 msgid "The coupon has been deleted."
 msgstr ""
 
-#: wp-coupon.php:750
+#: wp-coupon.php:753
 msgid "The coupon could not be deleted."
 msgstr ""
 
-#: wp-coupon.php:760
-#, possible-php-format
+#: wp-coupon.php:763
+#, php-format
 msgid ""
 "This coupon expired on %s. Change the expiry date below to allow this coupon "
 "to be downloaded."
 msgstr ""
 
-#: wp-coupon.php:774
+#: wp-coupon.php:777
 msgid "The coupon code will be inserted automatically here"
 msgstr ""
 
-#: wp-coupon.php:840
+#: wp-coupon.php:843
 msgid ""
 "Set the number of times this coupon can be downloaded (leave blank for "
 "unlimited)"
 msgstr ""
 
-#: wp-coupon.php:860
+#: wp-coupon.php:863
 msgid "This box MUST be ticked for this coupon to be available."
 msgstr ""
 
-#: wp-coupon.php:861
-msgid "coupon available"
+#: wp-coupon.php:864
+msgid "Coupon available"
 msgstr ""
 
-#: wp-coupon.php:866
+#: wp-coupon.php:869
 msgid "Tick this box to allow this coupon to be downloaded"
 msgstr ""
 
-#: wp-coupon.php:875
+#: wp-coupon.php:878
 msgid "Tick this box to use a random 6-character code on each coupon"
 msgstr ""
 
-#: wp-coupon.php:924
+#: wp-coupon.php:927
 msgid ""
 "Tick this box to use your own codes on each coupon. You must enter all the "
 "codes you want to use below:"
 msgstr ""
 
-#: wp-coupon.php:947 wp-coupon.php:949
+#: wp-coupon.php:950 wp-coupon.php:952
 msgid "Delete coupon"
 msgstr ""
 
-#: wp-coupon.php:950
+#: wp-coupon.php:953
 msgid "Tick this box to delete this coupon"
 msgstr ""
 
-#: wp-coupon.php:969
-msgid "coupon deleted"
+#: wp-coupon.php:972
+msgid "Coupon deleted"
 msgstr ""
 
-#: wp-coupon.php:976
-msgid "coupon not found"
+#: wp-coupon.php:979
+msgid "Coupon not found"
 msgstr ""
 
-#: wp-coupon.php:977
+#: wp-coupon.php:980
 msgid "Sorry, that coupon was not found."
 msgstr ""
 
-#: wp-coupon.php:989
-msgid "coupon reports"
+#: wp-coupon.php:992
+msgid "Coupon reports"
 msgstr ""
 
-#: wp-coupon.php:1030
+#: wp-coupon.php:1033
 msgid "Templates updated"
 msgstr ""
 
-#: wp-coupon.php:1061
+#: wp-coupon.php:1064
 msgid "Your template has been uploaded."
 msgstr ""
 
-#: wp-coupon.php:1072
+#: wp-coupon.php:1075
 msgid ""
 "Sorry, the template file you uploaded was not in the correct format (JPEG), "
 "or was not the correct size (1181 x 532 pixels). Please upload a correct "
 "template file."
 msgstr ""
 
-#: wp-coupon.php:1082
+#: wp-coupon.php:1085
 msgid "Sorry, your template could not be saved. Please try again."
 msgstr ""
 
-#: wp-coupon.php:1091 wp-coupon.php:1128
+#: wp-coupon.php:1094 wp-coupon.php:1131
 msgid ""
 "Sorry, your host does not support GD image functions, so you cannot add your "
 "own templates."
 msgstr ""
 
-#: wp-coupon.php:1098
+#: wp-coupon.php:1101
 msgid "Please attach a template file"
 msgstr ""
 
-#: wp-coupon.php:1107
+#: wp-coupon.php:1110
 msgid "Add a template"
 msgstr ""
 
-#: wp-coupon.php:1113
+#: wp-coupon.php:1116
 msgid "Template file"
 msgstr ""
 
-#: wp-coupon.php:1116
+#: wp-coupon.php:1119
 msgid "Template name"
 msgstr ""
 
-#: wp-coupon.php:1119
+#: wp-coupon.php:1122
 msgid "Add template"
 msgstr ""
 
-#: wp-coupon.php:1153
+#: wp-coupon.php:1156
 msgid "This template cannot be edited"
 msgstr ""
 
-#: wp-coupon.php:1162
+#: wp-coupon.php:1165
 msgid "Save templates"
 msgstr ""
 
-#: wp-coupon.php:1344
+#: wp-coupon.php:1209
+msgid "Reset coupon database"
+msgstr ""
+
+#: wp-coupon.php:1356
 msgid "No"
 msgstr ""
 
-#: wp-coupon.php:1346
+#: wp-coupon.php:1358
 msgid "Yes"
 msgstr ""
 
-#: wp-coupon.php:1432 wp-coupon.php:1438
+#: wp-coupon.php:1444 wp-coupon.php:1450
 msgid ""
 "Sorry, the list could not be downloaded. Please click back and try again."
 msgstr ""
 
-#: wp-coupon.php:2101
-msgid "Registered to:"
+#: wp-coupon.php:1625
+msgid "coupon code inserted here"
 msgstr ""
 
-#: wp-coupon.php:2112
+#: wp-coupon.php:2077 wp-coupon.php:2082
 msgid "Expiry:"
 msgstr ""
 
-#: wp-coupon.php:2186
+#: wp-coupon.php:2145 wp-coupon.php:2208
 msgid ""
 "You have successfully registered to download this coupon, please download "
 "the coupon from here:"
 msgstr ""
 
-#: wp-coupon.php:2194
+#: wp-coupon.php:2153 wp-coupon.php:2216
 msgid "Thank you for registering. You will shortly receive an email sent to '"
 msgstr ""
 
-#: wp-coupon.php:2205
+#: wp-coupon.php:2164 wp-coupon.php:2227
 msgid ""
 "Sorry, your email address and name could not be registered. Have you already "
 "registered for this coupon? Please try again."
 msgstr ""
 
-#: wp-coupon.php:2217
+#: wp-coupon.php:2176 wp-coupon.php:2239
 msgid "Sorry, your email address was not valid. Please try again."
 msgstr ""
 
-#: wp-coupon.php:2231
+#: wp-coupon.php:2190 wp-coupon.php:2253
 msgid "Please provide some details"
 msgstr ""
 
-#: wp-coupon.php:2232
+#: wp-coupon.php:2191 wp-coupon.php:2254
 msgid ""
 "To download this coupon you must provide your name and email address. You "
 "will then receive a link by email to download your personalised coupon."
 msgstr ""
 
-#: wp-coupon.php:2242
+#: wp-coupon.php:2201 wp-coupon.php:2264
 msgid "Your email address"
 msgstr ""
 
-#: wp-coupon.php:2244
+#: wp-coupon.php:2203 wp-coupon.php:2266
 msgid "Your name"
 msgstr ""
 
-#: wp-coupon.php:2246
+#: wp-coupon.php:2205 wp-coupon.php:2268
 msgid "Register for this coupon"
 msgstr ""
 
-#: wp-coupon.php:2478
-msgid "Thank you for donating"
-msgstr ""
-
-#: wp-coupon.php:2498
-#, possible-php-format
-msgid "To report bugs please visit <a href=\"%s\">%s</a>."
-msgstr ""
-
-#: wp-coupon.php:2514
-#, possible-php-format
+#: wp-coupon.php:1114
+#, php-format
 msgid ""
-"If you found %1$s useful please consider donating to help %2$s to continue "
-"writing free Wordpress plugins."
+"To create your own templates use <a href=\"%s\">this empty template</a>."
 msgstr ""
 
-#: wp-coupon.php:2516
-#, possible-php-format
-msgid "If you found %s useful please consider donating."
+#: wp-coupon.php:2073
+msgid "Registered to:"
 msgstr ""
 
-#: wp-coupon.php:2523
-msgid "Hide this"
+#: wp-coupon.php:2092
+msgid "Error template open!"
 msgstr ""
 
-#: wp-coupon.php:2548
-#, possible-php-format
-msgid "<a href=\"%s\">Bugs</a>"
+#: wp-coupon.php:697
+msgid "Shortcodes"
 msgstr ""
 
-#: wp-coupon.php:2561
-msgid "Donate"
+#: wp-coupon.php:2216
+#, php-format
+msgid ""
+"Thank you for registering. You will shortly receive an email sent to '%s' "
+"with a link to your personalised coupon."
 msgstr ""

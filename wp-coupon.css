@@ -112,37 +112,87 @@ font-size: 0.9em;
 color: #666;
 }
 #couponform label, #templateform label {
+clear: left;
 float: left;
 width: 16em;
 }
-.times {
-font-family: 'Times New Roman', Times, serif;
-}
-.timesb {
-font-family: 'Times New Roman', Times, serif; 
-font-weight: bold;
-}
-.almohanad {
-font-family: Almohanad, Georgia, serif;
-}
-.helvetica {
-font-family: Helvetica, Trebuchet, 'Trebuchet MS', sans-serif;
-}
-.helveticab {
-font-family: Helvetica, Trebuchet, 'Trebuchet MS', sans-serif; 
-font-weight: bold;
-}
 .dejavusans {
-font-family: Arial, sans-serif;
+font-family: 'DejaVu Sans', sans;
+letter-spacing: .05em;
 }
 .dejavusansb {
-font-family: Arial, sans-serif; 
+font-family: 'DejaVu Sans', sans; 
 font-weight: bold;
+letter-spacing: .05em;
 }
-.courier {
-font-family: 'Courier New', Courier, monotype;
+.dejavusansi {
+font-family: 'DejaVu Sans', sans; 
+font-style: italic;
+letter-spacing: .05em;
 }
-.courierb {
-font-family: 'Courier New', Courier, monotype; 
+.dejavusansbi {
+font-family: 'DejaVu Sans', sans; 
 font-weight: bold;
+font-style: italic;
+letter-spacing: .05em;
+}
+.dejavusanscondensed {
+font-family: 'DejaVu Sans', sans;
+letter-spacing: .01em;
+}
+.dejavusanscondensedb {
+font-family: 'DejaVu Sans', sans; 
+font-weight: bold;
+letter-spacing: .01em;
+}
+.dejavusanscondensedi {
+font-family: 'DejaVu Sans', sans; 
+font-style: italic;
+letter-spacing: .01em;
+}
+.dejavusanscondensedbi {
+font-family: 'DejaVu Sans', sans; 
+font-weight: bold;
+font-style: italic;
+letter-spacing: .01em;
+}
+.dejavuserif {
+font-family: 'DejaVu Serif', sans-serif;
+letter-spacing: .05em;
+}
+.dejavuserifb {
+font-family: 'DejaVu Serif', sans-serif; 
+font-weight: bold;
+letter-spacing: .05em;
+}
+.dejavuserifi {
+font-family: 'DejaVu Serif', sans-serif; 
+font-style: italic;
+letter-spacing: .05em;
+}
+.dejavuserifbi {
+font-family: 'DejaVu Serif', sans-serif; 
+font-weight: bold;
+font-style: italic;
+letter-spacing: .05em;
+}
+.dejavuserifcondensed {
+font-family: 'DejaVu Serif', sans-serif;
+letter-spacing: .01em;
+}
+.dejavuserifcondensedb {
+font-family: 'DejaVu Serif', sans-serif; 
+font-weight: bold;
+letter-spacing: .01em;
+}
+.dejavuserifcondensedi {
+font-family: 'DejaVu Serif', sans-serif; 
+font-style: italic;
+letter-spacing: .01em;
+}
+.dejavuserifcondensedbi {
+font-family: 'DejaVu Serif', sans-serif; 
+font-weight: bold;
+font-style: italic;
+letter-spacing: .01em;
 }

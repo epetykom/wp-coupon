@@ -1,7 +1,7 @@
 === wp-coupon ===
 Contributors: qnub
 Donate link: 
-Tags: picture, flyer
+Tags: picture, flyer, jpeg, coupon, discount
 Requires at least: 3.0.0
 Tested up to: 3.0.4
 

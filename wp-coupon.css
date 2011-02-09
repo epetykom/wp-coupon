@@ -112,6 +112,7 @@ font-size: 0.9em;
 color: #666;
 }
 #couponform label, #templateform label {
+clear: left;
 float: left;
 width: 16em;
 }

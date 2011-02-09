@@ -7,15 +7,15 @@
 /*
 Plugin Name: wp-coupon
 Plugin URI: https://github.com/qnub/wp-coupon
-Description: wp-coupon allows you to offer downloadable, printable coupons from your Wordpress site. coupons can be available to anyone, or require a name and email address before they can be downloaded.
-Author: qnub, based on VoucherPress plugin by Chris Taylor
+Description: Based on VoucherPress plugin by Chris Taylor with PDF replaced to JPEG and fonts changed to DejaVu (better i18n). Wp-coupon allows you to offer downloadable, printable coupons from your Wordpress site. Coupons can be available to anyone, or require a name and email address before they can be downloaded.
+Author: qnub
 Version: 0.1
 Author URI: http://www.google.com/profiles/qnub.ru
 */
 
 // set the current version
 function wp_coupon_current_version() {
-	return "1.2";
+	return "0.1";
 }
 
 //define("wp-couponDEV", true);
@@ -32,6 +32,9 @@ wp_coupon_init();
 
 function wp_coupon_init() {
 	if ( function_exists( "add_action" ) ) {
+		// Create Text Domain For Translations
+		PLUGINDIR.'/'.dirname(plugin_basename(__FILE__)).'/languages';
+		load_plugin_textdomain('wp-coupon', PLUGINDIR.'/'.dirname(plugin_basename(__FILE__)).'/languages');
 		// add template redirect action
 		add_action( "template_redirect", "wp_coupon_template" );
 		// add the admin menu
@@ -47,7 +50,7 @@ function wp_coupon_init() {
 		// add the admin email download function
 		add_action( "admin_menu", "wp_coupon_check_download" );
 		// add the admin head includes
-		if ( substr( @$_GET["page"], 0, 7 ) == "coupons" ) {
+		if ( mb_substr( @$_GET["page"], 0, 7 ) == "coupons" ) {
 			add_action( "admin_head", "wp_coupon_admin_css" );
 			add_action( "admin_head", "wp_coupon_admin_js" );
 		}
@@ -376,7 +379,7 @@ function wp_coupon_add_admin()
 	add_submenu_page( "coupons", __( "Create a coupon", "wp-coupon" ), __( "Create", "wp-coupon" ), "publish_posts", "coupons-create", "wp_coupon_create_coupon_page" );
 	// the reports page has not yet been developed
 	//add_submenu_page( "coupons", __( "coupon reports", "wp-coupon" ), __( "Reports", "wp-coupon" ), "publish_posts", "coupons-reports", "wp_coupon_reports_page" ); 
-	add_submenu_page( "coupons", __( "coupon templates", "wp-coupon" ), __( "Templates", "wp-coupon" ), "publish_posts", "coupons-templates", "wp_coupon_templates_page" ); 
+	add_submenu_page( "coupons", __( "Coupon templates", "wp-coupon" ), __( "Templates", "wp-coupon" ), "publish_posts", "coupons-templates", "wp_coupon_templates_page" ); 
 	
 	// for WPMU site admins
 	if ( ( function_exists( 'is_super_admin' ) && is_super_admin() ) || ( function_exists( 'is_site_admin' ) && is_site_admin() ) ) {
@@ -554,17 +557,17 @@ function wp_coupon_create_coupon_page()
 	
 	<div id="couponpreview">
 	
-		<h2><textarea name="name" id="name" rows="2" cols="100">' . __( "coupon name (30 characters)", "wp-coupon" ) . '</textarea></h2>
+		<h2><textarea name="name" id="name" rows="2" cols="100">' . __( "Coupon name (30 characters)", "wp-coupon" ) . '</textarea></h2>
 		
 		<p><textarea name="text" id="text" rows="3" cols="100">' . __( "Type the coupon text here (200 characters)", "wp-coupon" ) . '</textarea></p>
 		
-		<p>[' . __( "coupon code inserted here", "wp-coupon" ) . ']</p>
+		<p>[' . __( "Coupon code inserted here", "wp-coupon" ) . ']</p>
 		
 		<p id="couponterms"><textarea name="terms" id="terms" rows="4" cols="100">' . __( "Type the coupon terms and conditions here (300 characters)", "wp-coupon" ) . '</textarea></p>
 	
 	</div>
 	
-	<p>' . __("coupon description (optional): enter a longer description here which will go in the email sent to a user registering for this coupon.", "wp-coupon" ) . '</p>
+	<p>' . __("Coupon description (optional): enter a longer description here which will go in the email sent to a user registering for this coupon.", "wp-coupon" ) . '</p>
 	<p><textarea name="description" id="description" rows="3" cols="100"></textarea></p>
 	
 	';
@@ -620,7 +623,7 @@ function wp_coupon_create_coupon_page()
 	' . __( "Day:", "wp-coupon" ) . ' <input type="text" name="expiryday" id="expiryday" class="num" value="" /> 
 	<span>' . __( "Enter the date on which this coupon will expire (leave blank for never)", "wp-coupon" ) . '</span></p>
 	
-	<h3>' . __( "coupon codes", "wp-coupon" ) . '</h3>
+	<h3>' . __( "Coupon codes", "wp-coupon" ) . '</h3>
 	
 	<p><label for="randomcodes">' . __( "Use random codes", "wp-coupon" ) . '</label>
 	<input type="radio" name="codestype" id="randomcodes" value="random" checked="checked" /> <span>' . __( "Tick this box to use a random character code on each coupon", "wp-coupon" ) . '</span></p>
@@ -691,7 +694,7 @@ function wp_coupon_edit_coupon_page()
 			echo ' | ';
 		}
 		
-		echo '<a href="#" id="showshortcodes">Shortcodes</a></span></h2>
+		echo '<a href="#" id="showshortcodes">'.__('Shortcodes','wp-coupon').'</a></span></h2>
 		
 		<div class="hider" id="shortcodes">
 		
@@ -777,7 +780,7 @@ function wp_coupon_edit_coupon_page()
 		
 		</div>
 		
-		<p>' . __("coupon description (optional): enter a longer description here which will go in the email sent to a user registering for this coupon.", "wp-coupon" ) . '</p>
+		<p>' . __("Coupon description (optional): enter a longer description here which will go in the email sent to a user registering for this coupon.", "wp-coupon" ) . '</p>
 	<p><textarea name="description" id="description" rows="3" cols="100">' . $coupon->description . '</textarea></p>
 		
 		';
@@ -858,14 +861,14 @@ function wp_coupon_edit_coupon_page()
 		<span>' . __( "Enter the date on which this coupon will expire (leave blank for never)", "wp-coupon" ) . '</span></p>
 		
 		<p><strong>' . __( "This box MUST be ticked for this coupon to be available.", "wp-coupon" ) . '</strong></p>
-		<p><label for="live">' . __( "coupon available", "wp-coupon" ) . '</label>
+		<p><label for="live">' . __( "Coupon available", "wp-coupon" ) . '</label>
 		<input type="checkbox" name="live" id="live" value="1"';
 		if ( $coupon->live == "1" ) {
 			echo ' checked="checked"';
 		}
 		echo '/> <span>' . __( "Tick this box to allow this coupon to be downloaded", "wp-coupon" ) . '</span></p>
 		
-		<h3>' . __( "coupon codes", "wp-coupon" ) . '</h3>
+		<h3>' . __( "Coupon codes", "wp-coupon" ) . '</h3>
 	
 		<p><label for="randomcodes">' . __( "Use random codes", "wp-coupon" ) . '</label>
 		<input type="radio" name="codestype" id="randomcodes" value="random"';
@@ -966,14 +969,14 @@ function wp_coupon_edit_coupon_page()
 	
 		if ( @$_GET["result"] == "4" ) {
 			echo '
-			<h2>' . __( "coupon deleted", "wp-coupon" ) . '</h2>
+			<h2>' . __( "Coupon deleted", "wp-coupon" ) . '</h2>
 			<div id="message" class="updated fade">
 				<p><strong>' . __( "The coupon has been deleted.", "wp-coupon" ) . '</strong></p>
 			</div>
 			';
 		} else {
 			echo '
-			<h2>' . __( "coupon not found", "wp-coupon" ) . '</h2>
+			<h2>' . __( "Coupon not found", "wp-coupon" ) . '</h2>
 			<p>' . __( "Sorry, that coupon was not found.", "wp-coupon" ) . '</p>
 			';
 		}
@@ -986,7 +989,7 @@ function wp_coupon_reports_page()
 	wp_coupon_report_header();
 	
 	echo '
-	<h2>' . __( "coupon reports", "wp-coupon" ) . '</h2>
+	<h2>' . __( "Coupon reports", "wp-coupon" ) . '</h2>
 
 	';
 	
@@ -999,7 +1002,7 @@ function wp_coupon_templates_page()
 	wp_coupon_report_header();
 	
 	echo '
-	<h2>' . __( "coupon templates", "wp-coupon" ) . '</h2>
+	<h2>' . __( "Coupon templates", "wp-coupon" ) . '</h2>
 	';
 	
 	// get templates
@@ -1108,7 +1111,7 @@ function wp_coupon_templates_page()
 	
 	<form action="admin.php?page=coupons-templates" method="post" enctype="multipart/form-data" id="templateform">
 	
-	<p>' . __( sprintf( 'To create your own templates use <a href="%s">this empty template</a>.', get_option( "siteurl" ) . "/wp-content/plugins/wp-coupon/templates/1.jpg" ), 'wp-coupon' ) . '</p>
+	<p>' . sprintf(__(  'To create your own templates use <a href="%s">this empty template</a>.',  'wp-coupon' ),get_option( "siteurl" ) . "/wp-content/plugins/wp-coupon/templates/1.jpg" ) . '</p>
 	
 	<p><label for="file">' . __( "Template file", "wp-coupon" ) . '</label>
 	<input type="file" name="file" id="file" /></p>
@@ -1198,14 +1201,12 @@ function wp_coupon_report_header() {
 	echo '
 	<div id="wp-coupon" class="wrap">
 	';
-	wp_coupon_wp_plugin_standard_header( "GBP", "wp-coupon", "Chris Taylor", "chris@stillbreathing.co.uk", "http://wordpress.org/extend/plugins/wp-coupon/" );
 }
 
 // to display below every report
 function wp_coupon_report_footer() {
-	wp_coupon_wp_plugin_standard_footer( "GBP", "wp-coupon", "Chris Taylor", "chris@stillbreathing.co.uk", "http://wordpress.org/extend/plugins/wp-coupon/" );
 	echo '
-	<p><a href="admin.php?page=coupons&amp;reset=true">Reset wp-coupon database</a></p>
+	<p><a href="admin.php?page=coupons&amp;reset=true">'.__('Reset coupon database','wp-coupon').'</a></p>
 	</div>
 	';
 }
@@ -1303,18 +1304,18 @@ function wp_coupon_link( $coupon_guid, $download_guid = "", $encode = true ) {
 // from http://php.net/manual/en/function.com-create-guid.php
 function wp_coupon_guid( $length = 6 ){
     if (function_exists('com_create_guid')){
-        return substr( md5( str_replace( "{", "", str_replace( "}", "", com_create_guid() ) ) ), 0, $length );
+        return mb_substr( md5( str_replace( "{", "", str_replace( "}", "", com_create_guid() ) ) ), 0, $length );
     }else{
         mt_srand( ( double )microtime()*10000 );
         $charid = strtoupper( md5( uniqid( rand(), true ) ) );
         $hyphen = chr(45);
         $uuid = 
-                substr( $charid, 0, 8 ).$hyphen
-                .substr( $charid, 8, 4 ).$hyphen
-                .substr( $charid,12, 4 ).$hyphen
-                .substr( $charid,16, 4 ).$hyphen
-                .substr( $charid,20,12 );
-        return substr( md5( str_replace( "{", "", str_replace( "}", "", $uuid ) ) ), 0, $length );
+                mb_substr( $charid, 0, 8 ).$hyphen
+                .mb_substr( $charid, 8, 4 ).$hyphen
+                .mb_substr( $charid,12, 4 ).$hyphen
+                .mb_substr( $charid,16, 4 ).$hyphen
+                .mb_substr( $charid,20,12 );
+        return mb_substr( md5( str_replace( "{", "", str_replace( "}", "", $uuid ) ) ), 0, $length );
     }
 }
 
@@ -1479,9 +1480,9 @@ function wp_coupon_check_create_coupon() {
 			$codelength = 6;
 		}
 		$codeprefix = trim( $_POST["codeprefix"] );
-		if ( strlen( $codeprefix ) > 6 ) { $codeprefix = substr( $codeprefix, 6 ); }
+		if ( mb_strlen( $codeprefix ) > 6 ) { $codeprefix = mb_substr( $codeprefix, 6 ); }
 		$codesuffix = trim( $_POST["codesuffix"] );
-		if ( strlen( $codesuffix ) > 6 ) { $codesuffix = substr( $codesuffix, 6 ); }
+		if ( mb_strlen( $codesuffix ) > 6 ) { $codesuffix = mb_substr( $codesuffix, 6 ); }
 		$codes = "";
 		if ( $_POST["codestype"]== "custom" ) {
 			$codes = trim( $_POST["customcodelist"] );
@@ -1535,9 +1536,9 @@ function wp_coupon_check_edit_coupon() {
 			$codelength = 6;
 		}
 		$codeprefix = trim( $_POST["codeprefix"] );
-		if ( strlen( $codeprefix ) > 6 ) { $codeprefix = substr( $codeprefix, 6 ); }
+		if ( mb_strlen( $codeprefix ) > 6 ) { $codeprefix = mb_substr( $codeprefix, 6 ); }
 		$codesuffix = trim( $_POST["codesuffix"] );
-		if ( strlen( $codesuffix ) > 6 ) { $codesuffix = substr( $codesuffix, 6 ); }
+		if ( mb_strlen( $codesuffix ) > 6 ) { $codesuffix = mb_substr( $codesuffix, 6 ); }
 		$codes = "";
 		if ( $_POST["codestype"]== "custom" ) {
 			$codes = trim( $_POST["customcodelist"] );
@@ -2032,80 +2033,125 @@ function wp_coupon_download_coupon( $coupon_guid, $download_guid = "" ) {
 function wp_coupon_render_coupon( $coupon, $code ) {
 
 	global $current_user;
+	
 	// get the coupon template image
 	if( wp_coupon_template_exists( $coupon->template ) )
 	{
-		// get the current memory limit
-		$memory = ini_get( 'memory_limit' );
-		
-		// try to set the memory limit
-		//@ini_set( 'memory_limit', '64mb' );
 	
-		$slug = wp_coupon_slug( $coupon->name );
-	
-		header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
-		header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
-		header("Cache-Control: no-store, no-cache, must-revalidate");
-		header("Cache-Control: post-check=0, pre-check=0", false);
-		header("Pragma: no-cache");
-		header( 'Content-type: image/jpeg' );
-		header( 'Content-Disposition: attachment; filename="' . $slug . '.jpg"' );
-		
 		// set the properties
-		$coupon_template = ABSPATH . 'wp-content/plugins/wp-coupon/templates/' . $coupon->template . '.jpg';
-		$coupon_image_w = 1181;
-		$coupon_image_h = 532;
-		$coupon_image = imagecreatefromjpeg($coupon_template);
-		$coupon_text_color = imagecolorallocate($coupon_image, 0, 0, 0);
-
-    //imagettftext ( resource $image , float $size , float $angle , int $x , int $y , int $color , string $fontfile , string $text )
-
-    imagettftext($coupon_image, 32, 0, 9, $coupon->name, $coupon_text_color);
-    
-    
-		// set title font
-		// $pdf->SetFont($coupon->font, '', 32);
-		// print title
-
+		$coupon_template = ABSPATH . PLUGINDIR.'/'.dirname(plugin_basename(__FILE__)).'/templates/' . $coupon->template . '.jpg';
 		
-		// set text font
-		// $pdf->SetFont($coupon->font, '', 18);
-		// print text
-
-		$registered_name = "";
-		if ( $coupon->registered_name != "" ) {
-			$registered_name =  __( "Registered to:", "wp-coupon" ) . " "  . stripslashes( $coupon->registered_name ) . ": ";
+		if($coupon_image = imagecreatefromjpeg($coupon_template)){
+			$slug = wp_coupon_slug( $coupon->name );
+	
+			header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+			header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+			header("Cache-Control: no-store, no-cache, must-revalidate");
+			header("Cache-Control: post-check=0, pre-check=0", false);
+			header("Pragma: no-cache");
+			header( 'Content-type: image/jpeg' );
+			header( 'Content-Disposition: attachment; filename="coupon.jpg"' );
+	
+			$coupon_font = ABSPATH . PLUGINDIR.'/'.dirname(plugin_basename(__FILE__)).'/fonts/' . $coupon->font . '.ttf';
+			$coupon_image_w = 1181;
+			$coupon_image_h = 532;
+			$coupon_border = 100;
+      $coupon_whitespace = 50;
+			$coupon_text_color = imagecolorallocate($coupon_image, 0, 0, 0);
+			$coupon_name_size = 36;
+			$coupon_text_size = 24;
+			$coupon_code_size = 14;
+			$coupon_terms_size = 10;
+      $text_width = $coupon_image_w - $coupon_border * 2;
+      
+      list($coupon_image, $y_offset) = wp_coupon_write_text($coupon_image, $coupon_border, $coupon_border, $text_width, $coupon_name_size, $coupon_font, $coupon_text_color, $coupon->name, 30);
+      list($coupon_image, $y_offset) = wp_coupon_write_text($coupon_image, $coupon_border, ($y_offset + $coupon_whitespace), $text_width, $coupon_text_size, $coupon_font, $coupon_text_color, $coupon->text, 200);
+      
+      $registered_name = "";
+      
+      if ( $voucher->registered_name != "" ) {
+        $registered_name =  __( "Registered to:", "wp-coupon" ) . " "  . stripslashes( $voucher->registered_name ) . ": ";
+      }
+      
+	    list($coupon_image, $y_offset) = wp_coupon_write_text($coupon_image, $coupon_border, ($y_offset + $coupon_whitespace), $text_width, $coupon_code_size, $coupon_font, $coupon_text_color, $registered_name . $code);
+	    
+			// get the expiry, if it exists
+			$expiry = ""; 
+      
+			if ( $coupon->expiry != "" && (int)$coupon->expiry > 0 ) {
+				$expiry = __( "Expiry:", "wp-coupon" ) . " " . date( "d.m.Y", $coupon->expiry ) . '. ';
+			}
+			
+      list($coupon_image, $y_offset) = wp_coupon_write_text($coupon_image, $coupon_border, ($y_offset + $coupon_whitespace), $text_width, $coupon_terms_size, $coupon_font, $coupon_text_color, $expiry . stripslashes( $coupon->terms ), 300);
+		
+			imagejpeg($coupon_image, null, 85);
+			imagedestroy($coupon_image);
+			
+			exit();
+		}else{
+		  echo __('Error template open!','wp-coupon');
 		}
-		
-		// set code font
-		$pdf->SetFont($coupon->font, '', 14);
-		// print code
-		$pdf->Write( 10, $registered_name . $code, $link = '', $fill = 0, $align = 'C', $ln = true);
-
-		// get the expiry, if it exists
-		$expiry = ""; 
-		if ( $coupon->expiry != "" && (int)$coupon->expiry > 0 ) {
-			$expiry = " " . __( "Expiry:", "wp-coupon" ) . " " . date( "Y/m/d", $coupon->expiry );
-		}
-		
-		// set terms font
-		$pdf->SetFont($coupon->font, '', 10);
-		// print terms
-		$pdf->Write( 5,  stripslashes( $coupon->terms ) . $expiry, $link = '', $fill = 0, $align = 'C', $ln = true);
-
-		// close and output PDF document
-		$pdf->Output( $slug . '.pdf', 'D' ); 
-		
-		// try to set the memory limit back
-		//@ini_set( 'memory_limit', @memory );
-		
-		exit();
 		
 	} else {
 	
 		return false;
 		
 	}
+}
+
+
+/**
+ * @param image $image image resource.
+ * @param int $x X of top-left corner of text output.
+ * @param int $y Y of top-left corner 0f text output.
+ * @param int $width width of text output.
+ * @param float $text-size TTF font size for text output.
+ * @param string $font_file TTF font filename.
+ * @param color $text_color color for text output.
+ * @param string $text text for output.
+ * @param int $limit limit of characters for output.
+ * @return array of resulted image resource and Y top offset for next output. 
+ */
+function wp_coupon_write_text($image, $x, $y, $width, $text_size, $font_file, $text_color, $text, $limit = 0){
+  $whitespace_size = imagettfbbox($text_size, 0, $font_file, ' ');
+  $whitespace_size = $whitespace_size[2];
+  $words = split(' ',$text);
+  $start_x = $part_length = 0;
+  $text_part = '';
+  $middle_x = $width / 2 + $x;
+  
+  foreach($words as $word){
+    $word_size = imagettfbbox($text_size, 0, $font_file, $word);
+    $part_length += mb_strlen($word);
+    
+    if((($start_x + $word_size[2]) > $width) || ($limit && $part_length > $limit)){
+      $text_part_size = imagettfbbox($text_size, 0, $font_file, $text_part);
+      $y += $text_part_size[1]-$text_part_size[5];
+      imagettftext($image, $text_size, 0, floor($middle_x - $text_part_size[2] / 2), $y, $text_color, $font_file, $text_part);
+      
+      if($limit && $part_length > $limit){
+        $text_part = '';
+        break;
+      }
+      
+      $text_part = "$word ";
+      $part_length = mb_strlen($text_part); 
+      $start_x = imagettfbbox($text_size, 0, $font_file, $text_part);
+      $start_x = $start_x[2];
+    }else{
+      $text_part .= "$word ";
+      $start_x = imagettfbbox($text_size, 0, $font_file, $text_part);
+      $start_x = $start_x[2];
+    }
+  }
+  
+  if($text_part){
+    $text_part_size = imagettfbbox($text_size, 0, $font_file, $text_part);
+    $y += $text_part_size[1]-$text_part_size[5];
+    imagettftext($image, $text_size, 0, floor($middle_x - $text_part_size[2] / 2), $y, $text_color, $font_file, $text_part);
+  }
+  
+  return array($image, $y);
 }
 
 // render a coupon
@@ -2167,7 +2213,7 @@ function wp_coupon_register_form( $coupon_guid, $plain = false ) {
 				do_action( "wp_coupon_register", $coupon->id, $coupon->name, $_POST["coupon_email"], $_POST["coupon_name"] );
 			
 				$out .= '
-				<p>' .  __( "Thank you for registering. You will shortly receive an email sent to '" . trim($_POST["coupon_email"]) . "' with a link to your personalised coupon.", "wp-coupon" ) . '</p>
+				<p>' .  sprintf(__( "Thank you for registering. You will shortly receive an email sent to '%s' with a link to your personalised coupon.", "wp-coupon" ),trim($_POST["coupon_email"])). '</p>
 				';
 				if ( !$plain ) {
 					echo $out;
@@ -2442,112 +2488,12 @@ function wp_coupon_create_code( $couponid ) {
 	return $code;
 }
 
-// a standard header for your plugins, offers a PayPal donate button and link to a support page
-function wp_coupon_wp_plugin_standard_header( $currency = "", $plugin_name = "", $author_name = "", $paypal_address = "", $bugs_page ) {
-	$r = "";
-	$option = get_option( $plugin_name . " header" );
-	if ( ( isset( $_GET[ "header" ] ) && $_GET[ "header" ] != "" ) || ( isset( $_GET["thankyou"] ) && $_GET["thankyou"] == "true" ) ) {
-		update_option( $plugin_name . " header", "hide" );
-		$option = "hide";
-	}
-	if ( isset( $_GET["thankyou"] ) && $_GET["thankyou"] == "true" ) {
-		$r .= '<div class="updated"><p>' . __( "Thank you for donating" ) . '</p></div>';
-	}
-	if ( $currency != "" && $plugin_name != "" && ( !isset( $_GET["header"] ) || $_GET[ "header" ] != "hide" ) && $option != "hide" )
-	{
-		$r .= '<div class="updated">';
-		$pageURL = 'http';
-		if ( isset( $_SERVER["HTTPS"] ) && $_SERVER["HTTPS"] == "on" ) { $pageURL .= "s"; }
-		$pageURL .= "://";
-		if ( $_SERVER["SERVER_PORT"] != "80" ) {
-			$pageURL .= $_SERVER["SERVER_NAME"] . ":" . $_SERVER["SERVER_PORT"] . $_SERVER["REQUEST_URI"];
-		} else {
-			$pageURL .= $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
-		}
-		if ( strpos( $pageURL, "?") === false ) {
-			$pageURL .= "?";
-		} else {
-			$pageURL .= "&";
-		}
-		$pageURL = htmlspecialchars( $pageURL );
-		if ( $bugs_page != "" ) {
-			$r .= '<p>' . sprintf ( __( 'To report bugs please visit <a href="%s">%s</a>.' ), $bugs_page, $bugs_page ) . '</p>';
-		}
-		if ( $paypal_address != "" && is_email( $paypal_address ) ) {
-			$r .= '
-			<form id="wp_plugin_standard_header_donate_form" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-			<input type="hidden" name="cmd" value="_donations" />
-			<input type="hidden" name="item_name" value="Donation: ' . $plugin_name . '" />
-			<input type="hidden" name="business" value="' . $paypal_address . '" />
-			<input type="hidden" name="no_note" value="1" />
-			<input type="hidden" name="no_shipping" value="1" />
-			<input type="hidden" name="rm" value="1" />
-			<input type="hidden" name="currency_code" value="' . $currency . '">
-			<input type="hidden" name="return" value="' . $pageURL . 'thankyou=true" />
-			<input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHosted" />
-			<p>';
-			if ( $author_name != "" ) {
-				$r .= sprintf( __( 'If you found %1$s useful please consider donating to help %2$s to continue writing free Wordpress plugins.' ), $plugin_name, $author_name );
-			} else {
-				$r .= sprintf( __( 'If you found %s useful please consider donating.' ), $plugin_name );
-			}
-			$r .= '
-			<p><input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="" /></p>
-			</form>
-			';
-		}
-		$r .= '<p><a href="' . $pageURL . 'header=hide" class="button">' . __( "Hide this") . '</a></p>';
-		$r .= '</div>';
-	}
-	print $r;
-}
-function wp_coupon_wp_plugin_standard_footer( $currency = "", $plugin_name = "", $author_name = "", $paypal_address = "", $bugs_page ) {
-	$r = "";
-	if ( $currency != "" && $plugin_name != "" )
-	{
-		$r .= '<form id="wp_plugin_standard_footer_donate_form" action="https://www.paypal.com/cgi-bin/webscr" method="post" style="clear:both;padding-top:50px;"><p>';
-		$pageURL = 'http';
-		if ( isset( $_SERVER["HTTPS"] ) && $_SERVER["HTTPS"] == "on" ) { $pageURL .= "s"; }
-		$pageURL .= "://";
-		if ( $_SERVER["SERVER_PORT"] != "80" ) {
-			$pageURL .= $_SERVER["SERVER_NAME"] . ":" . $_SERVER["SERVER_PORT"] . $_SERVER["REQUEST_URI"];
-		} else {
-			$pageURL .= $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
-		}
-		if ( strpos( $pageURL, "?") === false ) {
-			$pageURL .= "?";
-		} else {
-			$pageURL .= "&";
-		}
-		$pageURL = htmlspecialchars( $pageURL );
-		if ( $bugs_page != "" ) {
-			$r .= sprintf ( __( '<a href="%s">Bugs</a>' ), $bugs_page );
-		}
-		if ( $paypal_address != "" && is_email( $paypal_address ) ) {
-			$r .= '
-			<input type="hidden" name="cmd" value="_donations" />
-			<input type="hidden" name="item_name" value="Donation: ' . $plugin_name . '" />
-			<input type="hidden" name="business" value="' . $paypal_address . '" />
-			<input type="hidden" name="no_note" value="1" />
-			<input type="hidden" name="no_shipping" value="1" />
-			<input type="hidden" name="rm" value="1" />
-			<input type="hidden" name="currency_code" value="' . $currency . '" />
-			<input type="hidden" name="return" value="' . $pageURL . 'thankyou=true" />
-			<input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHosted" />
-			<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_SM.gif" name="submit" alt="' . __( "Donate" ) . ' ' . $plugin_name . '" />
-			';
-		}
-		$r .= '</p></form>';
-	}
-	print $r;
-}
-
 require_once( "plugin-register.class.php" );
 $register = new Plugin_Register();
 $register->file = __FILE__;
 $register->slug = "wp-coupon";
 $register->name = "wp-coupon";
 $register->version = wp_coupon_current_version();
-$register->developer = "Chris Taylor";
-$register->homepage = "http://www.stillbreathing.co.uk";
+$register->developer = "qnub";
+$register->homepage = "https://github.com/qnub/wp-coupon";
 $register->Plugin_Register();

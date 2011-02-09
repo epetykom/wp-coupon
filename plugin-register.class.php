@@ -35,52 +35,11 @@ if ( !class_exists( "Plugin_Register" ) ) {
 		function Plugin_Register() {
 			@session_start();
 			register_activation_hook( $this->file, array( $this, "Activated" ) );
-			add_action( "admin_notices", array( $this, "Registration" ) );
 		}
 		function Activated() {
 			if ( $this->slug != "" && $this->name != "" && $this->version != "" ) {
 				$_SESSION["activated_plugin"] = $this->slug;
 			}
 		}
-		function Registration() {
-			if ( isset( $_SESSION["activated_plugin"] ) && $_SESSION["activated_plugin"] == $this->slug ) {
-			$_SESSION["activated_plugin"] = "";
-			echo '
-			<div id="message" class="updated fade">
-				<p style="line-height:1.4em">
-				';
-				if ( $this->register_message == "" || strpos( $this->register_message, "%1" ) === false ) {
-					echo '
-				<strong>Please consider <a href="plugins.php?paged=' . @$_GET["paged"] . '&amp;' . $this->slug . '=register">registering your use of ' . $this->name . '</a></strong> to tell <a href="' . $this->homepage . '">' . $this->developer . ' (the plugin maker)</a> you are using it. This sends only your site name and URL to ' . $this->developer . ' so they know where their plugin is being used. No other data is sent.';
-				
-				} else {
-					echo str_replace( "%1", "plugins.php?paged=" . @$_GET["paged"] . "&amp;" . $this->slug . "=register", $this->register_message );
-				}
-				echo '
-				</p>
-			</div>';
-			}
-			if ( isset( $_GET[$this->slug] ) && $_GET[$this->slug] == "register" ) {
-				$site = get_option( "blogname" );
-				$url = get_option( "siteurl" );
-				$register_url = trim( $this->homepage, "/" ) . "/?plugin=" . urlencode( $this->name ) . "&version=" . urlencode( $this->version ) . "&site=" . urlencode( $site ) . "&url=" . urlencode( $url );
-				wp_remote_fopen( $register_url );
-				echo '
-				<div id="message" class="updated fade">
-					<p>';
-					if ( $this->thanks_message == "" ) {
-						echo '
-						<strong>Thank you for registering ' . $this->name . '.</strong>
-						';
-					} else {
-						echo $this->thanks_message;
-					}
-					echo '
-					</p>
-				</div>
-				';
-			}
-		}
 	}
 }
-?>
